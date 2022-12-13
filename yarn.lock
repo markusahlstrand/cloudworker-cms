@@ -275,10 +275,15 @@
   dependencies:
     "@types/node" "*"
 
-"@types/node@*", "@types/node@^18.11.9":
+"@types/node@*":
   version "18.11.9"
   resolved "https://registry.yarnpkg.com/@types/node/-/node-18.11.9.tgz#02d013de7058cea16d36168ef2fc653464cfbad4"
   integrity sha512-CRpX21/kGdzjOpFsZSkcrXMGIBWMGNIHXXBVFSH+ggkftxg+XYP20TESbh+zFvFj3EQOl5byk0HTRn1IL6hbqg==
+
+"@types/node@^18.11.13":
+  version "18.11.13"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-18.11.13.tgz#dff34f226ec1ac0432ae3b136ec5552bd3b9c0fe"
+  integrity sha512-IASpMGVcWpUsx5xBOrxMj7Bl8lqfuTY7FKAnPmu5cHkfQVWF8GulWS1jbRqA934qZL35xh5xN/+Xe/i26Bod4w==
 
 "@types/stack-trace@0.0.29":
   version "0.0.29"
@@ -1081,6 +1086,16 @@ kleur@^4.1.4:
   resolved "https://registry.yarnpkg.com/kleur/-/kleur-4.1.5.tgz#95106101795f7050c6c650f350c683febddb1780"
   integrity sha512-o+NO+8WrRiQEE4/7nwRJhN1HWpVmJm511pBHUxPLtp0BUISzlBplORYSmTclCnJvQq2tKu/sgl3xVpkc7ZWuQQ==
 
+kysely-d1@^0.0.6:
+  version "0.0.6"
+  resolved "https://registry.yarnpkg.com/kysely-d1/-/kysely-d1-0.0.6.tgz#9279e5a49fd4a00b6d1834e153a3e9756db0596a"
+  integrity sha512-WF0au/jHw/5ILirADKrDp/yGI/9rilRBqz0+/HIz61qSk6yDGF+DO5UXaDOw/w+q44s+HrYLTdQMlR/QSSTWtQ==
+
+kysely@^0.22.0:
+  version "0.22.0"
+  resolved "https://registry.yarnpkg.com/kysely/-/kysely-0.22.0.tgz#8aac53942da3cadc604d7d154a746d983fe8f7b9"
+  integrity sha512-ZE3qWtnqLOalodzfK5QUEcm7AEulhxsPNuKaGFsC3XiqO92vMLm+mAHk/NnbSIOtC4RmGm0nsv700i8KDp1gfQ==
+
 locate-path@^5.0.0:
   version "5.0.0"
   resolved "https://registry.yarnpkg.com/locate-path/-/locate-path-5.0.0.tgz#1afba396afd676a6d42504d0a67a3a7eb9f62aa0"
@@ -1530,10 +1545,10 @@ ts-node@^10.9.1:
     v8-compile-cache-lib "^3.0.1"
     yn "3.1.1"
 
-tsoa-workers@^1.0.0:
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/tsoa-workers/-/tsoa-workers-1.0.0.tgz#6a43397df59f3f6811869ad2c51dd394f9834e35"
-  integrity sha512-W7jKBWn21GhL+N8rU2J5Oao/2db7Opb2kfFbJkrUb13eOxeFW6+ZRzQ5tqPTdFOEtWW/sHlWtp0xqgVqwyh7RQ==
+tsoa-workers@^1.1.4:
+  version "1.1.4"
+  resolved "https://registry.yarnpkg.com/tsoa-workers/-/tsoa-workers-1.1.4.tgz#ffccb352d1128650c61550460b8d932beb2a940d"
+  integrity sha512-rfFz9xt42F/U57h6wsbNAo/L4LbMFnZF3oZR4r0efJAjSce8S+pHuS/bsZTfFMRiOyLARhZjM7Cxbkj0lMG4aA==
 
 tsoa@^4.1.3:
   version "4.1.3"
@@ -1548,10 +1563,10 @@ typescript@<4.8.0:
   resolved "https://registry.yarnpkg.com/typescript/-/typescript-4.7.4.tgz#1a88596d1cf47d59507a1bcdfb5b9dfe4d488235"
   integrity sha512-C0WQT0gezHuw6AdY1M2jxUO83Rjf0HP7Sk1DtXj6j1EwkQNZrHAg2XPWlq62oqEhYvONq5pkC2Y9oPljWToLmQ==
 
-typescript@^4.9.3:
-  version "4.9.3"
-  resolved "https://registry.yarnpkg.com/typescript/-/typescript-4.9.3.tgz#3aea307c1746b8c384435d8ac36b8a2e580d85db"
-  integrity sha512-CIfGzTelbKNEnLpLdGFgdyKhG23CKdKgQPOBc+OUNrkJ2vr+KSzsSV5kq5iWhEQbok+quxgGzrAtGWCyU7tHnA==
+typescript@^4.9.4:
+  version "4.9.4"
+  resolved "https://registry.yarnpkg.com/typescript/-/typescript-4.9.4.tgz#a2a3d2756c079abda241d75f149df9d561091e78"
+  integrity sha512-Uz+dTXYzxXXbsFpM86Wh3dKCxrQqUcVMxwU54orwlJjOpO3ao8L7j5lH+dWfTwgCwIuM9GQ2kvVotzYJMXTBZg==
 
 uglify-js@^3.1.4:
   version "3.17.4"
@@ -1628,10 +1643,10 @@ wordwrap@^1.0.0:
   resolved "https://registry.yarnpkg.com/wordwrap/-/wordwrap-1.0.0.tgz#27584810891456a4171c8d0226441ade90cbcaeb"
   integrity sha512-gvVzJFlPycKc5dZN4yPkP8w7Dc37BtP1yczEneOb4uq34pXZcvrtRTmWV8W+Ume+XCxKgbjM+nevkyFPMybd4Q==
 
-wrangler@^2.4.4:
-  version "2.4.4"
-  resolved "https://registry.yarnpkg.com/wrangler/-/wrangler-2.4.4.tgz#712f93ad869bd4b7328665e60deec7b602c96bdc"
-  integrity sha512-Of3O/7RzIcGWGmt7dd5JevvP419De55smr4Hi07REKt9oXYhMNeaFy4wX35fHlv5e0pVCyGB3Fna8mI4Ib2pew==
+wrangler@^2.6.2:
+  version "2.6.2"
+  resolved "https://registry.yarnpkg.com/wrangler/-/wrangler-2.6.2.tgz#70882b4008f8bd7bf9e0a66519df50bfe061be3c"
+  integrity sha512-+in4oEQXDs6+vE+1c6niBd3IrW1DMRTbauR6G0u3TpD6UaXOLwLdBxRLEbN3m82dN+WNm7l1MbFZrKc/TnWjhw==
   dependencies:
     "@cloudflare/kv-asset-handler" "^0.2.0"
     "@esbuild-plugins/node-globals-polyfill" "^0.1.1"

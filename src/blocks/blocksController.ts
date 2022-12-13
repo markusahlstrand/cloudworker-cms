@@ -1,4 +1,4 @@
-// src/users/usersController.ts
+// src/Blocks/BlocksController.ts
 import { Context, ContextWithBody } from "cloudworker-router";
 import { Env } from "../types/Env";
 import { getDb } from "../services/db";
@@ -13,41 +13,41 @@ import {
   SuccessResponse,
 } from "tsoa-workers";
 
-import { User } from "./user";
-import { UsersService, UserCreationParams } from "./usersService";
+import { Block } from "./block";
+import { BlocksService, BlockCreationParams } from "./blocksService";
 
 interface Tmp {
   ctx: ContextWithBody<Env>;
 }
 
-@Route("users")
-export class UsersController extends Controller {
+@Route("blocks")
+export class BlocksController extends Controller {
   @Get("")
-  public async getUsers(@Request() request: any): Promise<User[]> {
+  public async listBlocks(@Request() request: any): Promise<Block[]> {
     const db = getDb(request.ctx);
 
-    return new UsersService(db).list();
+    return new BlocksService(db).list();
   }
 
-  @Get("{userId}")
-  public async getUser(
-    @Path() userId: number,
+  @Get("{id}")
+  public async getBlock(
+    @Path() id: number,
     @Request() request: any
-  ): Promise<User> {
+  ): Promise<Block> {
     const db = getDb(request.ctx);
 
-    return new UsersService(db).get(userId);
+    return new BlocksService(db).get(id);
   }
 
   @SuccessResponse("201", "Created") // Custom success response
   @Post()
-  public async createUser(
-    @Body() requestBody: UserCreationParams,
+  public async createBlock(
+    @Body() requestBody: BlockCreationParams,
     @Request() request: Tmp
   ): Promise<Response> {
     const db = getDb(request.ctx);
 
-    const result = await new UsersService(db).create(requestBody);
+    const result = await new BlocksService(db).create(requestBody);
     this.setStatus(201); // set return status 201
     return new Response(JSON.stringify(result));
   }

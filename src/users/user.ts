@@ -1,11 +1,15 @@
-export interface User {
-  id: number;
+import { Generated } from "kysely";
+
+interface UserBase {
   email: string;
-  name: string;
-  status?: "Happy" | "Sad" | "In the zone";
-  phoneNumbers: string[];
-  /**
-   * @minimum 5
-   */
-  length?: number;
+  firstName: string;
+  lastName: string;
+}
+
+export interface User extends UserBase {
+  id: number;
+}
+
+export interface UserTable extends UserBase {
+  id: Generated<number>;
 }

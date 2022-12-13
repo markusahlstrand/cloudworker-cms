@@ -2,8 +2,32 @@ name = "cloudworker-cms"
 main = "src/server.ts"
 compatibility_date = "2022-07-06"
 
-account_id = "bfbba687e68f84266013cc6dd14759c9"
+account_id = "0c8c22bdcd98c3dc6a35190650ef7906"
 
 kv_namespaces = []
 
+[[ d1_databases ]]
+binding = "CMS"
+database_name = "cms"
+database_id = "2f5c41b4-1745-41d8-b126-61fe2a4a3dc6"
+preview_database_id = "2f5c41b4-1745-41d8-b126-61fe2a4a3dc6"
+
 [vars]
+
+[env.dev]
+account_id = "0c8c22bdcd98c3dc6a35190650ef7906"
+workers_dev = true
+route = "cloudworker-cms.sesamy.dev/*"
+
+[[ env.dev.d1_databases ]]
+binding = "CMS"
+database_name = "cms"
+database_id = "2f5c41b4-1745-41d8-b126-61fe2a4a3dc6"
+preview_database_id = "2f5c41b4-1745-41d8-b126-61fe2a4a3dc6"
+
+
+[[ env.dev.d1_databases ]]
+binding = "CMS"
+database_name = "cms"
+database_id = "2f5c41b4-1745-41d8-b126-61fe2a4a3dc6"
+preview_database_id = "2f5c41b4-1745-41d8-b126-61fe2a4a3dc6"

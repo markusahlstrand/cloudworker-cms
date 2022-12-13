@@ -1,4 +1,4 @@
-import { Env } from "./models/Env";
+import { Env } from "./types/Env";
 import { app } from "./app";
 
 export default {
