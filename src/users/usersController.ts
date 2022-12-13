@@ -11,6 +11,7 @@ import {
   Request,
   Route,
   SuccessResponse,
+  Tags,
 } from "tsoa-workers";
 
 import { User } from "./user";
@@ -21,6 +22,7 @@ interface Tmp {
 }
 
 @Route("users")
+@Tags("users")
 export class UsersController extends Controller {
   @Get("")
   public async getUsers(@Request() request: any): Promise<User[]> {

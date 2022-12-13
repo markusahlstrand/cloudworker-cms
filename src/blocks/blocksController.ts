@@ -11,6 +11,7 @@ import {
   Request,
   Route,
   SuccessResponse,
+  Tags,
 } from "tsoa-workers";
 
 import { Block } from "./block";
@@ -21,6 +22,7 @@ interface Tmp {
 }
 
 @Route("blocks")
+@Tags("blocks")
 export class BlocksController extends Controller {
   @Get("")
   public async listBlocks(@Request() request: any): Promise<Block[]> {

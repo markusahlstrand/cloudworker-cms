@@ -11,6 +11,7 @@ import {
   Request,
   Route,
   SuccessResponse,
+  Tags,
 } from "tsoa-workers";
 
 import { Model } from "./model";
@@ -21,6 +22,7 @@ interface Tmp {
 }
 
 @Route("models")
+@Tags("models")
 export class ModelsController extends Controller {
   @Get("")
   /**
