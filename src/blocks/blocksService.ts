@@ -4,7 +4,7 @@ import { Database } from "../types/db";
 import { Block } from "./block";
 
 // A post request should not contain an id.
-export type BlockCreationParams = Pick<Block, "name">;
+export type BlockCreationParams = Pick<Block, "name" | "description">;
 
 export class BlocksService {
   db: Kysely<Database>;
@@ -16,7 +16,7 @@ export class BlocksService {
   public async list(): Promise<Block[]> {
     const blocks = await this.db.selectFrom("blocks").selectAll().execute();
 
-    return blocks;
+    return blocks as Block[];
   }
 
   public async get(id: number): Promise<Block> {
@@ -33,12 +33,32 @@ export class BlocksService {
     return block as Block;
   }
 
+  public async patch(
+    id: number,
+    blockCreationParams: BlockCreationParams
+  ): Promise<number> {
+    const result = await this.db
+      .updateTable("blocks")
+      .set({
+        ...blockCreationParams,
+        modifiedAt: new Date().toISOString(),
+      })
+      .where("blocks.id", "=", id)
+      .executeTakeFirst();
+
+    return Number(result.numUpdatedRows);
+  }
+
   public async create(
-    BlockCreationParams: BlockCreationParams
+    blockCreationParams: BlockCreationParams
   ): Promise<number> {
     const block = await this.db
       .insertInto("blocks")
-      .values(BlockCreationParams)
+      .values({
+        ...blockCreationParams,
+        modifiedAt: new Date().toISOString(),
+        createdAt: new Date().toISOString(),
+      })
       .returning("id")
       .executeTakeFirstOrThrow();
 

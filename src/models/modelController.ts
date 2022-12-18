@@ -11,13 +11,16 @@ import {
   Request,
   Route,
   SuccessResponse,
+  Middlewares,
   Tags,
+  Patch,
 } from "tsoa-workers";
 
 import { Model } from "./model";
 import { ModelsService, ModelCreationParams } from "./modelsService";
+import corsMiddleware from "../middlewares/cors";
 
-interface Tmp {
+interface RequestWithContext {
   ctx: ContextWithBody<Env>;
 }
 
@@ -25,9 +28,7 @@ interface Tmp {
 @Tags("models")
 export class ModelsController extends Controller {
   @Get("")
-  /**
-   * This is a Model
-   */
+  @Middlewares(corsMiddleware)
   public async listModels(@Request() request: any): Promise<Model[]> {
     const db = getDb(request.ctx);
 
@@ -35,6 +36,7 @@ export class ModelsController extends Controller {
   }
 
   @Get("{id}")
+  @Middlewares(corsMiddleware)
   public async getModel(
     @Path() id: number,
     @Request() request: any
@@ -44,11 +46,24 @@ export class ModelsController extends Controller {
     return new ModelsService(db).get(id);
   }
 
-  @SuccessResponse("201", "Created") // Custom success response
+  @Patch("{id}")
+  @Middlewares(corsMiddleware)
+  public async updateModel(
+    @Body() requestBody: ModelCreationParams,
+    @Path() id: number,
+    @Request() request: any
+  ): Promise<number> {
+    const db = getDb(request.ctx);
+
+    return new ModelsService(db).patch(id, requestBody);
+  }
+
+  @SuccessResponse("201", "Created")
   @Post()
+  @Middlewares(corsMiddleware)
   public async createModel(
     @Body() requestBody: ModelCreationParams,
-    @Request() request: Tmp
+    @Request() request: RequestWithContext
   ): Promise<Response> {
     const db = getDb(request.ctx);
 

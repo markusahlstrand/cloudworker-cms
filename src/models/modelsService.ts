@@ -1,11 +1,10 @@
 // src/Models/ModelsService.ts
-import { Mode } from "fs";
 import { Kysely } from "kysely";
 import { Database } from "../types/db";
 import { Model } from "./model";
 
 // A post request should not contain an id.
-export type ModelCreationParams = Pick<Model, "name">;
+export type ModelCreationParams = Pick<Model, "name" | "description">;
 
 export class ModelsService {
   db: Kysely<Database>;
@@ -34,12 +33,32 @@ export class ModelsService {
     return model as Model;
   }
 
+  public async patch(
+    id: number,
+    modelCreationParams: ModelCreationParams
+  ): Promise<number> {
+    const result = await this.db
+      .updateTable("models")
+      .set({
+        ...modelCreationParams,
+        modifiedAt: new Date().toISOString(),
+      })
+      .where("models.id", "=", id)
+      .executeTakeFirst();
+
+    return Number(result.numUpdatedRows);
+  }
+
   public async create(
-    ModelCreationParams: ModelCreationParams
+    modelCreationParams: ModelCreationParams
   ): Promise<number> {
     const results = await this.db
       .insertInto("models")
-      .values(ModelCreationParams)
+      .values({
+        ...modelCreationParams,
+        modifiedAt: new Date().toISOString(),
+        createdAt: new Date().toISOString(),
+      })
       .returning("id")
       .executeTakeFirstOrThrow();
 

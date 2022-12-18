@@ -65,39 +65,25 @@ app.post("/migrate-down", async (ctx: Context<Env>) => {
   }
 });
 
-app.get("/tmp", async (ctx: Context<Env>) => {
+app.post("/tmp", async (ctx: Context<Env>) => {
   try {
-    const db = getDb(ctx);
-    const results = await db.selectFrom("models").selectAll().execute();
+    // const db = getDb(ctx);
 
-    return new Response(JSON.stringify(results));
-  } catch (err: any) {
-    return new Response(
-      JSON.stringify({
-        message: err.message,
-        stack: err.stack,
-        cause: err.cause,
-      }),
-      {
-        status: 500,
-        headers: {
-          "content-type": "application/json",
-        },
-      }
-    );
-  }
-});
+    const statement = ctx.env.CMS.prepare(
+      "update blocks set created_at = ?1 where id = ?2"
+    ).bind(1671377507089, 1);
+    // const statement = ctx.env.CMS.prepare(
+    //   "update blocks set description = ?1 where id = ?2"
+    // ).bind("2022-12-18T15:29:46.190Z", 1);
+    // const statement = ctx.env.CMS.prepare("select * FROM blocks");
 
-app.post("/insert", async (ctx: Context<Env>) => {
-  try {
-    const db = getDb(ctx);
-    const results = await db
-      .insertInto("models")
-      .values({ name: "test3" })
-      .returning("id")
-      .executeTakeFirstOrThrow();
+    const response = await statement.all();
 
-    return new Response(JSON.stringify(results));
+    // await db
+    //   .updateTable("blocks")
+    //   .set({ modifiedAt: new Date().toISOString() })
+    //   .executeTakeFirst();
+    return new Response(JSON.stringify(response));
   } catch (err: any) {
     return new Response(
       JSON.stringify({
@@ -117,3 +103,5 @@ app.post("/insert", async (ctx: Context<Env>) => {
 app.use(bodyparser);
 
 RegisterRoutes(app);
+
+app.use(app.allowedMethods());

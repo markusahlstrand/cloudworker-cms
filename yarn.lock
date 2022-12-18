@@ -280,10 +280,10 @@
   resolved "https://registry.yarnpkg.com/@types/node/-/node-18.11.9.tgz#02d013de7058cea16d36168ef2fc653464cfbad4"
   integrity sha512-CRpX21/kGdzjOpFsZSkcrXMGIBWMGNIHXXBVFSH+ggkftxg+XYP20TESbh+zFvFj3EQOl5byk0HTRn1IL6hbqg==
 
-"@types/node@^18.11.15":
-  version "18.11.15"
-  resolved "https://registry.yarnpkg.com/@types/node/-/node-18.11.15.tgz#de0e1fbd2b22b962d45971431e2ae696643d3f5d"
-  integrity sha512-VkhBbVo2+2oozlkdHXLrb3zjsRkpdnaU2bXmX8Wgle3PUi569eLRaHGlgETQHR7lLL1w7GiG3h9SnePhxNDecw==
+"@types/node@^18.11.17":
+  version "18.11.17"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-18.11.17.tgz#5c009e1d9c38f4a2a9d45c0b0c493fe6cdb4bcb5"
+  integrity sha512-HJSUJmni4BeDHhfzn6nF0sVmd1SMezP7/4F0Lq+aXzmp2xm9O7WXrUtHW/CHlYVtZUbByEvWidHqRtcJXGF2Ng==
 
 "@types/stack-trace@0.0.29":
   version "0.0.29"
@@ -429,10 +429,10 @@ cliui@^6.0.0:
     strip-ansi "^6.0.0"
     wrap-ansi "^6.2.0"
 
-cloudworker-router@4.0.7:
-  version "4.0.7"
-  resolved "https://registry.yarnpkg.com/cloudworker-router/-/cloudworker-router-4.0.7.tgz#d81242021d8025b33fdd6e9d839af2dad1af1d15"
-  integrity sha512-eW9F1cQFyF6N09PB8BircikKdPfrl22QD2R7DDw9U2kwRvnOqPF1+TTGcMKG38sY1GyEyFI0biU77I5eeR1GPg==
+cloudworker-router@4.0.8:
+  version "4.0.8"
+  resolved "https://registry.yarnpkg.com/cloudworker-router/-/cloudworker-router-4.0.8.tgz#48a20ec2a810ea69ec59baa9e4a30210fba279d5"
+  integrity sha512-DxbMCH9bKNwMlMhKyxnHf/rFJt4e7KRulu4BCB+P6K5sefwZktrXNpbyIi9pvM9lNNqafekJ3Owi2/L99uQIFQ==
   dependencies:
     path-to-regexp "^6.2.1"
 
@@ -1545,10 +1545,10 @@ ts-node@^10.9.1:
     v8-compile-cache-lib "^3.0.1"
     yn "3.1.1"
 
-tsoa-workers@^1.1.7:
-  version "1.1.7"
-  resolved "https://registry.yarnpkg.com/tsoa-workers/-/tsoa-workers-1.1.7.tgz#8ba8b8b16cf3b999ac5dae2252379896f11e3bec"
-  integrity sha512-KBh/QSQa3bH2vzHKu1l1io8/Tyk5uKzNDAM3xhgxVzeaUH6AdI/FhFpvjziV6H2OHQtUpo3Whdj4OVozsXFryQ==
+tsoa-workers@^1.1.12:
+  version "1.1.12"
+  resolved "https://registry.yarnpkg.com/tsoa-workers/-/tsoa-workers-1.1.12.tgz#0760d649eef2fce4ad70100c882882ef12c5fb18"
+  integrity sha512-1GLbVPTFegzli3/P5jFq6s8dmAdhfg78Uo+m1WRj/AunrcoXHWjUTDX8eWOYymEE5ASV9DQNESEgU+gblBl/Nw==
 
 tsoa@^4.1.3:
   version "4.1.3"

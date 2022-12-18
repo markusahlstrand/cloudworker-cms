@@ -7,6 +7,9 @@ export async function up(db: Kysely<any>): Promise<void> {
     .addColumn("email", "varchar", (col) => col.notNull())
     .addColumn("first_name", "varchar")
     .addColumn("last_name", "varchar")
+    .addColumn("created_at", "varchar")
+    .addColumn("modified_at", "varchar")
+
     // .addColumn("created_at", "timestamp", (col) =>
     //   col.defaultTo(sql`now()`).notNull()
     // )
@@ -16,12 +19,18 @@ export async function up(db: Kysely<any>): Promise<void> {
     .createTable("models")
     .addColumn("id", "integer", (col) => col.autoIncrement().primaryKey())
     .addColumn("name", "varchar", (col) => col.notNull())
+    .addColumn("description", "varchar")
+    .addColumn("created_at", "varchar")
+    .addColumn("modified_at", "varchar")
     .execute();
 
   await db.schema
     .createTable("blocks")
     .addColumn("id", "integer", (col) => col.autoIncrement().primaryKey())
     .addColumn("name", "varchar", (col) => col.notNull())
+    .addColumn("description", "varchar")
+    .addColumn("created_at", "varchar")
+    .addColumn("modified_at", "varchar")
     .execute();
 }
 

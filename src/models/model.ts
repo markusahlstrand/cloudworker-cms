@@ -1,7 +1,10 @@
 import { Generated } from "kysely";
 
 interface ModelBase {
-  name: string;
+  name?: string;
+  description?: string;
+  readonly createdAt?: string;
+  readonly modifiedAt?: string;
 }
 
 export interface Model extends ModelBase {
