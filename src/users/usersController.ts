@@ -16,10 +16,7 @@ import {
 
 import { User } from "./user";
 import { UsersService, UserCreationParams } from "./usersService";
-
-interface Tmp {
-  ctx: ContextWithBody<Env>;
-}
+import { RequestWithContext } from "../types/RequestWithContext";
 
 @Route("users")
 @Tags("users")
@@ -45,7 +42,7 @@ export class UsersController extends Controller {
   @Post()
   public async createUser(
     @Body() requestBody: UserCreationParams,
-    @Request() request: Tmp
+    @Request() request: RequestWithContext
   ): Promise<Response> {
     const db = getDb(request.ctx);
 

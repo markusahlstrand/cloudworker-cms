@@ -67,22 +67,40 @@ app.post("/migrate-down", async (ctx: Context<Env>) => {
 
 app.post("/tmp", async (ctx: Context<Env>) => {
   try {
-    // const db = getDb(ctx);
+    const db = getDb(ctx);
 
-    const statement = ctx.env.CMS.prepare(
-      "update blocks set created_at = ?1 where id = ?2"
-    ).bind(1671377507089, 1);
+    // const statement = ctx.env.CMS.prepare(
+    //   "update blocks set created_at = ?1 where id = ?2"
+    // ).bind(1671377507089, 1);
     // const statement = ctx.env.CMS.prepare(
     //   "update blocks set description = ?1 where id = ?2"
     // ).bind("2022-12-18T15:29:46.190Z", 1);
     // const statement = ctx.env.CMS.prepare("select * FROM blocks");
 
+    const statement = ctx.env.CMS.prepare(
+      "INSERT INTO fields (name) VALUES (?1))"
+    ).bind("test");
+
     const response = await statement.all();
 
-    // await db
+    // const response = await db
     //   .updateTable("blocks")
     //   .set({ modifiedAt: new Date().toISOString() })
     //   .executeTakeFirst();
+
+    // const response = await db
+    //   .insertInto("fields")
+    //   .values({
+    //     name: "Name",
+    //     description: "A description",
+    //     modelId: 1,
+    //     order: 1,
+    //     type: "text",
+    //     modifiedAt: new Date().toISOString(),
+    //     createdAt: new Date().toISOString(),
+    //   })
+    //   .returning("id")
+    //   .executeTakeFirstOrThrow();
     return new Response(JSON.stringify(response));
   } catch (err: any) {
     return new Response(
